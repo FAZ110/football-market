@@ -1,6 +1,7 @@
 package com.footballmarket.market.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ public class PortfolioItem {
 
     @ManyToOne
     @JoinColumn(name = "app_user_id", nullable = false)
+    @JsonIgnore
     private AppUser user;
 
     @ManyToOne

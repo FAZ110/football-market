@@ -5,6 +5,7 @@ import com.footballmarket.market.model.Player;
 import com.footballmarket.market.repository.PlayerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,5 +21,10 @@ public class PlayerController {
     @GetMapping
     public List<Player> getAllPlayers() {
         return playerRepository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Player getPlayerById(@PathVariable Long id) {
+        return playerRepository.findById(id).orElse(null);
     }
 }
