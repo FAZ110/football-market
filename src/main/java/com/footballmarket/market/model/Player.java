@@ -20,5 +20,8 @@ public class Player {
     private String firstName;
     private String lastName;
     private BigDecimal price;   // special type for accurate operations (money)
-    private String position;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Position position;
 }

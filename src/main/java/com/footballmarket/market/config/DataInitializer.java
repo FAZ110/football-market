@@ -17,32 +17,32 @@ public class DataInitializer {
     @Bean
     CommandLineRunner commandLineRunner(PlayerRepository playerRepository, AppUserRepository appUserRepository){
         return args -> {
-            if (playerRepository.count() == 0){
-                Player p1 = new Player();
-                p1.setFirstName("Robert");
-                p1.setLastName("Lewandowski");
-                p1.setPrice(new BigDecimal("1000.00"));
-                p1.setPosition("ST");
-
-                Player p2 = new Player();
-                p2.setFirstName("Lamine");
-                p2.setLastName("Yamal");
-                p2.setPrice(new BigDecimal("2500.00"));
-                p2.setPosition("RW");
-
-                Player p3 = new Player();
-                p3.setFirstName("Wojciech");
-                p3.setLastName("Szczęsny");
-                p3.setPrice(new BigDecimal("500.00"));
-                p3.setPosition("GK");
-
-                playerRepository.saveAll(List.of(p1, p2, p3));
-
-                System.out.println(">>>>>Initialized database with sample players.");
-
-            }else{
-                System.out.println("Database already contains players. Skipping initialization.");
-            }
+//            if (playerRepository.count() == 0){
+//                Player p1 = new Player();
+//                p1.setFirstName("Robert");
+//                p1.setLastName("Lewandowski");
+//                p1.setPrice(new BigDecimal("1000.00"));
+//                p1.setPosition("ST");
+//
+//                Player p2 = new Player();
+//                p2.setFirstName("Lamine");
+//                p2.setLastName("Yamal");
+//                p2.setPrice(new BigDecimal("2500.00"));
+//                p2.setPosition("RW");
+//
+//                Player p3 = new Player();
+//                p3.setFirstName("Wojciech");
+//                p3.setLastName("Szczęsny");
+//                p3.setPrice(new BigDecimal("500.00"));
+//                p3.setPosition("GK");
+//
+//                playerRepository.saveAll(List.of(p1, p2, p3));
+//
+//                System.out.println(">>>>>Initialized database with sample players.");
+//
+//            }else{
+//                System.out.println("Database already contains players. Skipping initialization.");
+//            }
 
             if(appUserRepository.count() == 0){
                 AppUser user1 = new AppUser();
