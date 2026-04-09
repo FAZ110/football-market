@@ -24,4 +24,16 @@ public class Player {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Position position;
+
+    @Column(name = "age")
+    private Integer age;
+
+    @Column(name = "photoUrl")
+    private String photoUrl;
+
+    @Column(name = "teamName")
+    private String teamName;
+
+    @Column(name = "teamLogo")
+    private String teamLogo;
 }

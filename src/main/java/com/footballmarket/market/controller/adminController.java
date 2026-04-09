@@ -17,7 +17,7 @@ public class adminController {
     @PostMapping("/import-players")
     public ResponseEntity<String> importPlayers() {
         try {
-            footballApiService.fetchAndSavePlayers(39, 2023, 4, 10);
+            footballApiService.fetchAndSavePlayers(39, 2024, 4, 20);
             return ResponseEntity.ok("Players imported successfully");
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error importing players: " + e.getMessage());

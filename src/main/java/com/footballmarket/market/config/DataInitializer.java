@@ -2,6 +2,7 @@ package com.footballmarket.market.config;
 
 import com.footballmarket.market.model.AppUser;
 import com.footballmarket.market.model.Player;
+import com.footballmarket.market.model.Position;
 import com.footballmarket.market.repository.AppUserRepository;
 import com.footballmarket.market.repository.PlayerRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -22,19 +23,31 @@ public class DataInitializer {
 //                p1.setFirstName("Robert");
 //                p1.setLastName("Lewandowski");
 //                p1.setPrice(new BigDecimal("1000.00"));
-//                p1.setPosition("ST");
+//                p1.setPosition(Position.ATTACKER);
+//                p1.setPhotoUrl("https://media.api-sports.io/football/players/1.png");
+//                p1.setTeamLogo("https://media.api-sports.io/football/teams/1.png");
+//                p1.setTeamName("FC Barcelona");
+//                p1.setAge(35);
 //
 //                Player p2 = new Player();
 //                p2.setFirstName("Lamine");
 //                p2.setLastName("Yamal");
 //                p2.setPrice(new BigDecimal("2500.00"));
-//                p2.setPosition("RW");
+//                p2.setPosition(Position.ATTACKER);
+//                p2.setPhotoUrl("https://media.api-sports.io/football/players/1.png");
+//                p2.setTeamLogo("https://media.api-sports.io/football/teams/1.png");
+//                p2.setTeamName("FC Barcelona");
+//                p2.setAge(16);
 //
 //                Player p3 = new Player();
 //                p3.setFirstName("Wojciech");
 //                p3.setLastName("Szczęsny");
 //                p3.setPrice(new BigDecimal("500.00"));
-//                p3.setPosition("GK");
+//                p3.setPosition(Position.GOALKEEPER);
+//                p3.setPhotoUrl("https://media.api-sports.io/football/players/1.png");
+//                p3.setTeamLogo("https://media.api-sports.io/football/teams/1.png");
+//                p3.setTeamName("FC Barcelona");
+//                p3.setAge(34);
 //
 //                playerRepository.saveAll(List.of(p1, p2, p3));
 //

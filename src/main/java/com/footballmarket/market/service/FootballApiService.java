@@ -33,11 +33,10 @@ public class FootballApiService {
                 .build();
     }
 
-    @Transactional
+    // USUNIĘTO @Transactional !!!
     public void fetchAndSavePlayers(int leagueId, int season, int startPage, int endPage){
 
         System.out.println("Fetching players for league " + leagueId + " and season " + season + " from Football API...");
-
 
         for (int page = startPage; page <= endPage; page++) {
             System.out.println("Fetching page " + page + " of players...");
@@ -51,7 +50,6 @@ public class FootballApiService {
                             .build())
                     .retrieve()
                     .body(ApiFootballResponse.class);
-
 
             if (apiResponse != null && apiResponse.response() != null) {
                 int addedCount = 0;
@@ -70,23 +68,32 @@ public class FootballApiService {
                         player.setLastName(playerDto.lastname());
                         player.setPosition(mapPosition(stats.games().position()));
 
+                        player.setAge(playerDto.age());
+                        player.setPhotoUrl(playerDto.photo());
+
+                        if (stats.team() != null) {
+                            player.setTeamName(stats.team().name());
+                            player.setTeamLogo(stats.team().logo());
+                        }
+
                         BigDecimal initialPrice = calculateInitialPrice(playerDto.age(), stats.games().rating());
                         player.setPrice(initialPrice);
+
+                        // Metoda .save() ma wbudowany własny, bezpieczny @Transactional
                         playerRepository.save(player);
                         addedCount++;
-//                        System.out.println("Saved player: " + player.getFirstName() + " " + player.getLastName() + " with initial price: " + initialPrice);
-                    }
-                    try{
-                        Thread.sleep(2000);
-                    }catch(InterruptedException e){
-                        Thread.currentThread().interrupt();
                     }
                 }
                 System.out.println("Finished fetching and saving players. Total players in database: " + playerRepository.count() + ". Players added in this run: " + addedCount);
             }
+
+            // SLEEP PRZENIESIONY TUTAJ! (Czekamy 2 sekundy po każdej STRONIE, a nie po graczu)
+            try {
+                Thread.sleep(2000);
+            } catch(InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
         }
-
-
     }
 
     private BigDecimal calculateInitialPrice(int age, String ratingString){
