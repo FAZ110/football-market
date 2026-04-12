@@ -108,7 +108,7 @@ public class FootballApiService {
         }
         double ratingBase = Math.max(0.1, rating - 5.0);
 
-        double rawPrice = Math.pow(ratingBase, 3) * 100;
+        double rawPrice = Math.pow(ratingBase, 3) * 1000;
 
         if (age <= 21) {
             rawPrice *= 1.8;
