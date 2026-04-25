@@ -20,5 +20,20 @@ public class Player {
     private String firstName;
     private String lastName;
     private BigDecimal price;   // special type for accurate operations (money)
-    private String position;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Position position;
+
+    @Column(name = "age")
+    private Integer age;
+
+    @Column(name = "photoUrl")
+    private String photoUrl;
+
+    @Column(name = "teamName")
+    private String teamName;
+
+    @Column(name = "teamLogo")
+    private String teamLogo;
 }
